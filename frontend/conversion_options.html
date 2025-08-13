@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>VISION - Choose Conversion Mode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/icons/favicon.png" />
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-white flex items-center justify-center min-h-screen px-4">
+
+  <div class="w-full max-w-xl bg-white rounded-2xl shadow-2xl p-8">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-bold text-blue-700"> Select Conversion Mode</h1>
+      <p class="mt-2 text-gray-600">Choose how your video should be generated using AI-powered visuals.</p>
+    </div>
+
+    <form id="conversion-form" class="space-y-4">
+      <input type="hidden" name="filename" id="filename">
+
+      <div>
+        <label for="mode" class="block text-sm font-medium text-gray-700 mb-1">Conversion Mode:</label>
+        <select name="mode" id="mode" required class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm">
+          <option value="segmented"> Segmented (Image per Sentence)</option>
+          <option value="full"> Full Scene Video (Short AI Clips)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition">🎥 Generate Video</button>
+    </form>
+
+    <div id="status" class="mt-4 text-sm text-gray-700"></div>
+  </div>
+
+  <script>
+    document.getElementById("filename").value = localStorage.getItem("uploaded_filename");
+    const form = document.getElementById("conversion-form");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      status.textContent = "⏳ Processing... This may take a few moments.";
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch("/generate", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!res.ok) throw new Error("Video generation failed.");
+
+        const blob = await res.blob();
+        const videoUrl = URL.createObjectURL(blob);
+        localStorage.setItem("generated_video_url", videoUrl);
+        window.location.href = "/result.html";
+      } catch (err) {
+        console.error(err);
+        status.textContent = " Error: " + err.message;
+      }
+    });
+  </script>
+
+</body>
+</html>

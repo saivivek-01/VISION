@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISION - Visual Interpretation of Scripts</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body class="bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans">
+  <div class="min-h-screen flex flex-col justify-center items-center px-4 py-10">
+    <!-- Branding -->
+    <div class="text-center mb-10">
+      <h1 class="text-5xl sm:text-6xl font-extrabold text-blue-700 drop-shadow-lg">VISION</h1>
+      <p class="mt-2 text-lg sm:text-xl text-gray-600">Visual Interpretation of Scripts Into Organized Narration</p>
+    </div>
+
+    <!-- Demo Video / Preview with working Unmute Button -->
+    <div class="relative w-full max-w-4xl rounded-xl overflow-hidden shadow-lg mb-10">
+      <video id="demoVideo" autoplay muted loop playsinline class="w-full max-h-[480px] object-cover rounded-xl">
+        <source src="/illustrations/demo_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Mute/Unmute Toggle Button -->
+      <button id="toggleSound" class="absolute bottom-4 right-4 z-20 bg-white text-gray-800 px-3 py-1 rounded-full shadow text-sm hover:bg-gray-200 transition">
+        🔇 Unmute
+      </button>
+
+      <!-- Overlay Caption (pointer-events-none avoids blocking clicks) -->
+      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-6 py-4 text-white pointer-events-none z-10">
+        <p class="text-xl font-semibold">Turn documents into narrated educational videos — in seconds.</p>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="/upload.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-lg rounded-xl shadow-md transition">🚀 Get Started</a>
+
+    <!-- Features Grid -->
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl">
+      <div class="bg-white p-6 rounded-2xl shadow text-center">
+        <img src="icons/file-upload.png" alt="Upload Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">Upload Any Document</h3>
+        <p class="text-sm text-gray-500">Supports .pdf, .docx, .txt — no formatting needed.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow text-center">
+        <img src="icons/voice.png" alt="Narration Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">Natural Narration</h3>
+        <p class="text-sm text-gray-500">Human-like narration powered by expressive AI voices.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow text-center">
+        <img src="icons/visual.png" alt="Visual Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">Contextual Visuals</h3>
+        <p class="text-sm text-gray-500">Each concept is brought to life using vivid AI-generated visuals.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow text-center">
+        <img src="icons/video.png" alt="Video Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">Subtitled Videos</h3>
+        <p class="text-sm text-gray-500">Videos include synchronized subtitles for clarity and retention.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow text-center opacity-70">
+        <img src="icons/chat.png" alt="AI Tutor Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">AI Tutor (Coming Soon)</h3>
+        <p class="text-sm text-gray-500">Ask questions to a smart tutor after watching videos.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow text-center opacity-70">
+        <img src="icons/language.png" alt="Multilingual Icon" class="w-12 h-12 object-contain mx-auto mb-3">
+        <h3 class="font-bold text-lg mb-1">Multilingual Support (Coming Soon)</h3>
+        <p class="text-sm text-gray-500">Narration and subtitles in your preferred language.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-sm text-gray-400 text-center">
+      &copy; 2025 VISION by Sai Vivek Mallavalli. All rights reserved.
+    </footer>
+  </div>
+  <script>
+  const video = document.getElementById("demoVideo");
+  const toggleBtn = document.getElementById("toggleSound");
+
+  toggleBtn.addEventListener("click", () => {
+    video.muted = !video.muted;
+    toggleBtn.textContent = video.muted ? "🔇 Unmute" : "🔊 Mute";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <title>Result | VISION</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="/icons/favicon.png" />
+</head>
+<body class="bg-gradient-to-br from-white to-blue-50 min-h-screen flex items-center justify-center px-4">
+
+  <div class="max-w-3xl w-full bg-white rounded-2xl shadow-2xl p-8 text-center">
+    <h2 class="text-3xl font-extrabold text-blue-700 mb-2"> Your Video is Ready!</h2>
+    <p class="text-gray-600 mb-6">Preview and download your AI-generated educational video below.</p>
+
+    <video id="videoPlayer" width="100%" height="auto" controls class="rounded-xl shadow-lg mb-6 border border-gray-300"></video>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+      <a id="downloadLink" class="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-xl font-semibold transition" download> Download Video</a>
+      <a href="/upload.html" class="px-5 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-xl font-semibold transition"> Upload Another</a>
+    </div>
+
+    <hr class="my-6">
+
+    <h3 class="text-lg font-semibold text-gray-700 mb-3">🚀 Upcoming Features</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+      <button class="bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-xl shadow-sm" onclick="alert('Segmented video generation coming soon!')"> Full Lenght Video</button>
+      <button class="bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-xl shadow-sm" onclick="alert('Diagram Explainer coming soon!')">📊 Diagram Explainer</button>
+      <button class="bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-xl shadow-sm" onclick="alert('Multilingual subtitles coming soon!')">🌍 Multilingual Subtitles</button>
+      <button class="bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-xl shadow-sm" onclick="alert('Interactive Chat with Video coming soon!')"> Chat with Video</button>
+      <button class="bg-gray-100 hover:bg-gray-200 py-2 px-4 rounded-xl shadow-sm" onclick="alert('AI Character Tutor coming soon!')"> AI Tutor Avatar</button>
+    </div>
+  </div>
+
+  <script>
+    const videoUrl = localStorage.getItem("generated_video_url");
+
+    if (videoUrl) {
+      document.getElementById("videoPlayer").src = videoUrl;
+      document.getElementById("downloadLink").href = videoUrl;
+    } else {
+      document.querySelector(".max-w-3xl").innerHTML = "<p class='text-red-600 text-lg'>⚠️ Error: Unable to load video. Please return to upload page.</p>";
+    }
+  </script>
+
+</body>
+</html>
