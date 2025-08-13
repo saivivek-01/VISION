@@ -56,26 +56,26 @@ VISION/
 ├── backend/
 │   ├── main.py                # Flask API
 │   ├── utils/
-│   │   ├── text_parser.py
-│   │   ├── tts_engine.py
-│   │   ├── visual_generator.py
-│   │   ├── video_renderer.py
+│   │   ├── text_parser.py      # File parsing and text extraction
+│   │   ├── tts_engine.py       # Text-to-speech generation
+│   │   ├── visual_generator.py # Image/Video generation from text
+│   │   ├── video_renderer.py   # Combines visuals, audio, and subtitles
 │
 ├── frontend/                  # Web UI
-│   ├── index.html
-│   ├── upload.html
-│   ├── conversion_options.html
-│   ├── result.html
+│   ├── index.html              # Landing page
+│   ├── upload.html             # File upload page
+│   ├── conversion_options.html # Conversion mode selection
+│   ├── result.html             # Video playback page
 │
 ├── assets/
-│   ├── output_videos/         # Generated videos
+│   ├── output_videos/         # Generated videos storage
 │
-├── temp_uploads/              # Uploaded files
+├── temp_uploads/              # Uploaded files (temporary storage)
 │
-├── requirements.txt
-├── .env                       # API keys (ignored in git)
-├── .gitignore
-└── README.md
+├── requirements.txt           # Python dependencies
+├── .env                       # Environment variables (ignored in Git)
+├── .gitignore                 # Ignore sensitive files and cache
+└── README.md                  # Project documentation
 
 ---
 
@@ -149,4 +149,5 @@ PIKA_API_KEY
 ## 🏆 Credits
 
 Developed by: MALLAVALLI SAI VIVEK | PORTFOLIO: https://begetter.me
+
 Special Thanks: OpenAI ChatGPT for technical guidance
