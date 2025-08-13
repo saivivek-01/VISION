@@ -52,55 +52,30 @@ Unlike traditional static slides or pre-recorded lectures, VISION dynamically pr
 ##  Project Structure
 
 VISION/
-
 │
-
 ├── backend/
-
 │   ├── main.py                # Flask API
-
-│   ├── utils/
-
-│   │   ├── text_parser.py      # File parsing and text extraction
-
+│   ├── utils/│ 
+│   ├── text_parser.py      # File parsing and text extraction
 │   │   ├── tts_engine.py       # Text-to-speech generation
-
 │   │   ├── visual_generator.py # Image/Video generation from text
-
 │   │   ├── video_renderer.py   # Combines visuals, audio, and subtitles
-
 │
-
 ├── frontend/                  # Web UI
-
 │   ├── index.html              # Landing page
-
 │   ├── upload.html             # File upload page
-
 │   ├── conversion_options.html # Conversion mode selection
-
 │   ├── result.html             # Video playback page
-
 │
-
 ├── assets/
-
 │   ├── output_videos/         # Generated videos storage
-
 │
-
 ├── temp_uploads/              # Uploaded files (temporary storage)
-
 │
-
 ├── requirements.txt           # Python dependencies
-
 ├── .env                       # Environment variables (ignored in Git)
-
 ├── .gitignore                 # Ignore sensitive files and cache
-
 └── README.md                  # Project documentation
-
 
 ---
 
