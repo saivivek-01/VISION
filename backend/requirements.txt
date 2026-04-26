@@ -1,0 +1,17 @@
+Flask==2.3.3
+openai
+elevenlabs
+requests
+python-dotenv
+google-generativeai
+Werkzeug
+python-docx
+replicate
+huggingface_hub
+pillow
+requests
+gtts
+googletrans
+pydub
+PyMuPDF
+ffmpeg
